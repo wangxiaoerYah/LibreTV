@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.fork }}
 
-    steps:
+   steps:
     # REQUIRED step
     # Step 1: run a standard checkout action, provided by github
     - name: Checkout target repo
