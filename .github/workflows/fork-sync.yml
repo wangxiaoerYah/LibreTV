@@ -19,17 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.repository.fork }}
 
-   steps:
-    # REQUIRED step
-    # Step 1: run a standard checkout action, provided by github
-    - name: Checkout target repo
-      uses: actions/checkout@v3
-      with:
-        # optional: set the branch to checkout,
-        # sync action checks out your 'target_sync_branch' anyway
-        ref:  main
-        # REQUIRED if your upstream repo is private (see wiki)
-        persist-credentials: false
+    steps:
+      # REQUIRED step
+      # Step 1: run a standard checkout action, provided by github
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          # optional: set the branch to checkout,
+          # sync action checks out your 'target_sync_branch' anyway
+          ref: main
+          # REQUIRED if your upstream repo is private (see wiki)
+          persist-credentials: false
 
       # Step 2: run the sync action
       - name: Sync upstream changes
@@ -43,7 +43,6 @@ jobs:
 
           # Set test_mode true to run tests instead of the true action!!
           test_mode: false
-      
 
       - name: Sync check
         if: failure()
